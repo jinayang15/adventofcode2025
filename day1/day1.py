@@ -6,11 +6,10 @@ with open("day1in.txt", "r") as file:
         direction = line[0]
         steps = int(line[1:])
         if direction == "L":
-            current = current - steps
-            while current < 0:
-                current += 100
+            current -= steps
         elif direction == "R":
-            current = (current + steps) % 100
+            current += steps
+        current %= 100
         if current == 0:
             num_zeroes += 1
 
